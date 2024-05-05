@@ -44,7 +44,7 @@
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                             </div>
                             <div class="form-group mb-3">
-                                <input type="number" class="form-control" name="contact_number" id="contact" placeholder="Contact Number">
+                                <input type="number" onkeydown="return event.keyCode !== 69" class="form-control" name="contact_number" id="contact" placeholder="Contact Number">
                             </div>
                             <div class="form-group mb-3">
                                 <input type="text" class="form-control" name="username" id="Username" placeholder="Username">
