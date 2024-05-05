@@ -15,6 +15,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ftp.phxview.online
-          username: orms@phxview.online
+          username: orms@orms.phxview.online
           password: ormsystem2024
           server-dir: /
