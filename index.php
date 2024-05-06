@@ -13,7 +13,7 @@
     position:absolute;
     height:calc(100%);
     width:calc(100%);
-    background-image:url('oldfiles/images/no-image-available.png');
+    background-image:url('images/bg.png');
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
