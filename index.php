@@ -1,130 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+ <!DOCTYPE html>
+<html lang="en" class="" style="height: auto;">
+<style>
+  #header{
+    height:70vh;
+    width:calc(100%);
+    position:relative;
+    top:-1em;
+  }
+  #header:before{
+    content:"";
+    position:absolute;
+    height:calc(100%);
+    width:calc(100%);
+    background-image:url('oldfiles/images/no-image-available.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+  }
+  #header>div{
+    position:absolute;
+    height:calc(100%);
+    width:calc(100%);
+    z-index:2;
+  }
 
-	<title>ORMS</title>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="">
-	<meta name="author" content="Phoenixcoded" />
-	<!-- Favicon icon -->
-	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-	<!-- vendor css -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	
-	<style>
-        .fixed-button{
-            display: none;
-        }
-    </style>
-
-
-</head>
-
-<!-- [ auth-signin ] start -->
-<div class="auth-wrapper">
-	<div class="auth-content text-center">
-		
-		<div class="card borderless">
-			<div class="row align-items-center ">
-            
-				<div class="col-md-12">
-					<div class="card-body">
-                    <img src="images/logo.jpg" alt="" class="img-fluid mb-4">
-                        <form method="POST">
-                            <h4 class="mb-3 f-w-400">Signin</h4>
-                            <hr>
-                            <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="username" id="Username" placeholder="Username">
-                            </div>
-                            <div class="form-group mb-4">
-                                <input type="password" class="form-control" name="password" id="Password" placeholder="Password">
-                            </div>
-                            <!-- <div class="custom-control custom-checkbox text-left mb-4 mt-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Save credentials.</label>
-                            </div> -->
-                            <input type="submit" name="submit" class="btn btn-block btn-primary mb-4" value="Sign In">
-                            <hr>
-                            <!-- <p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html" class="f-w-400">Reset</a></p> -->
-                            <p class="mb-0 text-muted">Don’t have an account? <a href="register.php" class="f-w-400">Signup</a></p>
-                        </form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- [ auth-signin ] end -->
-
-<?php
-
-        include('include/connection.php');
-
-        if(isset($_POST["submit"]))
-        {
-            include('include/connection.php');
-
-            $username = $_POST['username'];
-            $password = md5($_POST['password']);
-
-            session_start();
-
-            $user = mysqli_query($con, "SELECT * FROM users WHERE username = '$username' and active = 1");
-            $rowuser = mysqli_fetch_array($user);
-
-            $checkusername = mysqli_num_rows($user);
-
-            if($checkusername > 0)
-            {
-              if ($password == $rowuser['password']) {
-
-                session_regenerate_id();
-
-                $_SESSION['loggedin'] = TRUE;
-                $_SESSION['role'] = $rowuser['role'];
-                $_SESSION['username'] = $rowuser['username'];
-                $_SESSION['id'] = $rowuser['id'];
-
-                if($rowuser['role'] == 1)
-                {
-                    header('location: admin/index.php');
+  #top-Nav a.nav-link.active {
+      color: #343a40;
+      font-weight: 900;
+      position: relative;
+  }
+  #top-Nav a.nav-link.active:before {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #343a40;
+    width: 33.33%;
+    left: 33.33%;
+    bottom: 0;
+  }
+</style>
+<?php require_once('inc/header.php') ?>
+  <body class="layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto;">
+    <div class="wrapper">
+     
+     <?php require_once('inc/topBarNav.php') ?>
+    
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper pt-5" >
+        <div id="header" class="shadow mb-4">
+              <div class="d-flex justify-content-center h-100 w-100 align-items-center flex-column px-3">
+                  <h1 class="w-100 text-center site-title px-5">Online Resort Management System</h1>
+              </div>
+          </div>
+        <!-- Main content -->
+        <section class="content ">
+          <div class="container">
+          <style>
+                .car-cover{
+                    width:10em;
                 }
-                else if($rowuser['role'] == 2) {
-                    $id = $_SESSION['id'];
-                    $client = mysqli_query($con, "SELECT * FROM clients WHERE user_id = '$id'");
-                    $res = mysqli_fetch_array($client);
-                    $_SESSION['fullname'] = $res['client_name'];
-                    $_SESSION['client_id'] = $res['id'];
-                    header('location: clients/index.php');
+                .car-item .col-auto{
+                    max-width: calc(100% - 12em) !important;
                 }
-                
-
-              } else {
-                echo "<script>alert('Invalid Password.')</script>";
-              }
-            } else {
-                echo "<script>alert('Invalid Username or Password.')</script>";
-            }
-            
-
-        }
-
-?>
-
-<!-- Required Js -->
-<script src="assets/js/vendor-all.min.js"></script>
-<script src="assets/js/plugins/bootstrap.min.js"></script>
-
-<script src="assets/js/pcoded.min.js"></script>
-
-
-
-</body>
-
+                .car-item:hover{
+                    transform:translate(0, -4px);
+                    background:#a5a5a521;
+                }
+                .banner-img-holder{
+                    height:25vh !important;
+                    width: calc(100%);
+                    overflow: hidden;
+                }
+                .banner-img{
+                    object-fit:scale-down;
+                    height: calc(100%);
+                    width: calc(100%);
+                    transition:transform .3s ease-in;
+                }
+                .car-item:hover .banner-img{
+                    transform:scale(1.3)
+                }
+                .welcome-content img{
+                    margin:.5em;
+                }
+            </style>
+            <div class="col-lg-12 py-5">
+                <div class="contain-fluid">
+                    <div class="card card-outline card-dark shadow rounded-0">
+                        <div class="card-body rounded-0">
+                            <div class="container-fluid">
+                                <h3 class="text-center">Welcome</h3>
+                                <hr>
+                                <div class="welcome-content">
+                                    <?php include("welcome.html") ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.content -->
+  <div class="modal fade rounded-0" id="confirm_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header rounded-0">
+        <h5 class="modal-title">Confirmation</h5>
+      </div>
+      <div class="modal-body rounded-0">
+        <div id="delete_content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade rounded-0" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
+      <div class="modal-content rounded-0">
+        <div class="modal-header rounded-0">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body rounded-0">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade rounded-0" id="uni_modal_right" role='dialog'>
+    <div class="modal-dialog modal-full-height  modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header rounded-0">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="fa fa-arrow-right"></span>
+        </button>
+      </div>
+      <div class="modal-body rounded-0">
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewer_modal" role='dialog'>
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+              <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
+              <img src="" alt="">
+      </div>
+    </div>
+  </div>
+      </div>
+      <!-- /.content-wrapper -->
+      <?php require_once('inc/footer.php') ?>
+  </body>
 </html>
