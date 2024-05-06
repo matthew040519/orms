@@ -37,22 +37,16 @@
 					<div class="card-body">
                     <img src="images/logo.jpg" alt="" class="img-fluid mb-4">
                         <form method="POST">
-                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <h4 class="mb-3 f-w-400">Reset Password</h4>
                             <hr>
                             <div class="form-group mb-3">
                                 <input type="text" class="form-control" name="username" id="Username" placeholder="Username">
                             </div>
-                            <div class="form-group mb-4">
-                                <input type="password" class="form-control" name="password" id="Password" placeholder="Password">
-                            </div>
-                            <!-- <div class="custom-control custom-checkbox text-left mb-4 mt-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Save credentials.</label>
-                            </div> -->
+                           
                             <input type="submit" name="submit" class="btn btn-block btn-primary" value="Sign In">
-                            <a href="index.php" style="color: white;" class="btn btn-block btn-secondary mb-4">Back to Home</a>
+                            <a href="login.php" style="color: white;" class="btn btn-block btn-secondary mb-4">Back to Login</a>
                             <hr>
-                            <p class="mb-2 text-muted">Forgot password? <a href="resetpassword.php" class="f-w-400">Reset</a></p>
+                            <!-- <p class="mb-2 text-muted">Forgot password? <a href="resetpassword.php" class="f-w-400">Reset</a></p> -->
                             <p class="mb-0 text-muted">Don’t have an account? <a href="register.php" class="f-w-400">Signup</a></p>
                         </form>
 					</div>
@@ -72,7 +66,6 @@
             include('include/connection.php');
 
             $username = $_POST['username'];
-            $password = md5($_POST['password']);
 
             session_start();
 
@@ -83,34 +76,9 @@
 
             if($checkusername > 0)
             {
-              if ($password == $rowuser['password']) {
-
-                session_regenerate_id();
-
-                $_SESSION['loggedin'] = TRUE;
-                $_SESSION['role'] = $rowuser['role'];
-                $_SESSION['username'] = $rowuser['username'];
-                $_SESSION['id'] = $rowuser['id'];
-
-                if($rowuser['role'] == 1)
-                {
-                    header('location: admin/index.php');
-                }
-                else if($rowuser['role'] == 2) {
-                    $id = $_SESSION['id'];
-                    $client = mysqli_query($con, "SELECT * FROM clients WHERE user_id = '$id'");
-                    $res = mysqli_fetch_array($client);
-                    $_SESSION['fullname'] = $res['client_name'];
-                    $_SESSION['client_id'] = $res['id'];
-                    header('location: clients/index.php');
-                }
-                
-
-              } else {
-                echo "<script>alert('Invalid Password.')</script>";
-              }
+                header('location: passwordreset.php?username='.$rowuser['username']);
             } else {
-                echo "<script>alert('Invalid Username or Password.')</script>";
+                echo "<script>alert('Username not found!')</script>";
             }
             
 
