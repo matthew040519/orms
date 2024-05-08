@@ -49,7 +49,7 @@
       <div class="content-wrapper pt-5" >
         <div id="header" class="shadow mb-4">
               <div class="d-flex justify-content-center h-100 w-100 align-items-center flex-column px-3">
-                  <h1 class="w-100 text-center site-title px-5">Online Resort Management System</h1>
+                  <h1 class="w-100 text-center site-title px-5">Kangaroo Beach Resort</h1>
               </div>
           </div>
         <!-- Main content -->
