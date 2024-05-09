@@ -72,15 +72,15 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary rounded-0 shadow">
                 <div class="card-body">
-                    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-2 gx-2 py-3" id="activity-list">
+                    <div class="row" id="activity-list">
                         <?php 
                         include('include/connection.php');
                         $activitys = $con->query("SELECT * FROM `activity_list` where delete_flag =0 and `status` = 1 order by `name` asc");
                         while($row = $activitys->fetch_assoc()):
                             $row['description'] = strip_tags(html_entity_decode($row['description']));
                         ?>
-                        <div class="col">
-                            <a href="javascript:void(0)" data-id="<?= $row['id'] ?>" class="activity-item card rounded-0 shadow flex-row text-decoration-none text-dark p-0">
+                        <!-- <div class="col"> -->
+                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter<?php echo $row['id']; ?>" class="activity-item card rounded-0 shadow flex-row text-decoration-none text-dark p-0">
                                 <div class="col-auto p-0">
                                     <div class="activity-holder overflow-hidden">
                                     <img src="<?= $row['image_path'] ?>" class="img-top rounded-0 activity-img" alt="<?= $row['name'] ?> Image">
@@ -95,8 +95,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                        <?php endwhile; ?>
+                        <!-- </div> -->
+                        <?php include('modals/activity_details.php');
+                       endwhile; ?>
                     </div>
                 </div>
             </div>

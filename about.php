@@ -61,11 +61,11 @@
                 <div class="card-body rounded-0">
                     <dl>
                         <dt class="text-muted"><i class="fa fa-envelope"></i> Email</dt>
-                        <dd class="pl-4">info@xyzresorts.com</dd>
+                        <dd class="pl-4">kangaroo_beachresort@yahoo.com.ph</dd>
                         <dt class="text-muted"><i class="fa fa-phone"></i> Contact #</dt>
-                        <dd class="pl-4">09854698789 / 78945632</dd>
+                        <dd class="pl-4">09166808606</dd>
                         <dt class="text-muted"><i class="fa fa-map-marked-alt"></i> Location</dt>
-                        <dd class="pl-4">XYZ Street, There City, Here, 2306</dd>
+                        <dd class="pl-4">Amunitan, Gonzaga, Cagayan 3513 Gonzaga, Philippines</dd>
                     </dl>
                 </div>
             </div>

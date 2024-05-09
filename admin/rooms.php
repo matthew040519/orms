@@ -81,10 +81,11 @@
                         <th>Rate</th>
                         <th>Status</th>
                         <th>Detail</th>
+                        <th>Settings</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $query = mysqli_query($con, "SELECT * FROM rooms WHERE active = 1");
+                    <?php $query = mysqli_query($con, "SELECT * FROM rooms");
                     while($row= mysqli_fetch_array($query)){
                     ?>
                     <tr>
@@ -96,8 +97,11 @@
                         <td><?php echo number_format($row['Rate'], 2); ?></td>
                         <td><span class="badge badge-<?php echo $row['active'] ? 'primary' : 'danger' ?>"><?php echo $row['active'] ? 'Available' : 'Not Available' ?></span></td>
                         <td><button data-toggle="modal" data-target="#exampleModalCenter<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">More Details</button></td>
+                        <td><button data-toggle="modal" data-target="#exampleModalCenterEdit<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</button> 
+                        <!-- <button data-toggle="modal" data-target="#deleteModal<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</button></td> -->
                     </tr>
-                        <?php include('modals/rooms_details.php'); ?>
+                        <?php include('modals/rooms_details.php');
+                        include('modals/editrooms.php'); ?>
                     <?php } ?>
                 </tbody>
             </table>

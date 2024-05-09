@@ -27,7 +27,7 @@
 </head>
 
 <!-- [ auth-signin ] start -->
-<div class="auth-wrapper">
+<div class="auth-wrapper" style="background-image: url('images/login-bg.jpg')">
 	<div class="auth-content text-center">
 		
 		<div class="card borderless">

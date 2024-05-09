@@ -27,7 +27,7 @@
 </head>
 
 <!-- [ auth-signin ] start -->
-<div class="auth-wrapper">
+<div class="auth-wrapper" style="background-image: url('images/login-bg.jpg')">
 	<div class="auth-content text-center">
 		<img src="assets/images/logo.png" alt="" class="img-fluid mb-4">
 		<div class="card borderless">
@@ -62,7 +62,7 @@
                             <input type="submit" name="submit" class="btn btn-block btn-primary mb-4" value="Sign In">
                             <hr>
                             <!-- <p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html" class="f-w-400">Reset</a></p> -->
-                            <p class="mb-0 text-muted">Have an account? <a href="index.php" class="f-w-400">Signin</a></p>
+                            <p class="mb-0 text-muted">Have an account? <a href="login.php" class="f-w-400">Signin</a></p>
                         </form>
 					</div>
 				</div>

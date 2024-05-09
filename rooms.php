@@ -77,14 +77,14 @@
                         while($row = $rooms->fetch_assoc()):
                            
                         ?>
-                        <a href="" class="text-decoration-none text-dark room-item list-group-item list-group-item-action">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter<?php echo $row['id']; ?>" class="text-decoration-none text-dark room-item list-group-item list-group-item-action">
                             <div class="d-flex align-items-top">
                                 <div class="col-auto">
                                     <div class="room-holder overflow-hidden">
                                     <img src="images/<?= $row['Image']; ?>" class="img-thumbnail rounded-0 room-img" alt="<?= $row['room_name'] ?>">
-                                    </div>
                                 </div>
-                                <div class="col-auto flex-grow-1 flex-shrink-1">
+                            </div>
+                            <div class="col-auto flex-grow-1 flex-shrink-1">
                                     <h3 class="text-navy mb-0"><b><?= $row['room_name'] ?></b></h3>
                                     <div class='text-muted'><span class="mr-3"><i class="fa fa-bed"></i></span><?= $row['good_for'] ?></div>
                                     <div class="truncate-5">
@@ -94,7 +94,9 @@
                                 </div>
                             </div>
                         </a>
-                        <?php endwhile; ?>
+                        <?php
+                      include('modals/room_details.php');
+                      endwhile; ?>
                     </div>
                 </div>
             </div>
@@ -106,60 +108,7 @@
 </script>
           </div>
         </section>
-        <!-- /.content -->
-  <div class="modal fade rounded-0" id="confirm_modal" role='dialog'>
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header rounded-0">
-        <h5 class="modal-title">Confirmation</h5>
-      </div>
-      <div class="modal-body rounded-0">
-        <div id="delete_content"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade rounded-0" id="uni_modal" role='dialog'>
-    <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
-      <div class="modal-content rounded-0">
-        <div class="modal-header rounded-0">
-        <h5 class="modal-title"></h5>
-      </div>
-      <div class="modal-body rounded-0">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade rounded-0" id="uni_modal_right" role='dialog'>
-    <div class="modal-dialog modal-full-height  modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header rounded-0">
-        <h5 class="modal-title"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span class="fa fa-arrow-right"></span>
-        </button>
-      </div>
-      <div class="modal-body rounded-0">
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="viewer_modal" role='dialog'>
-    <div class="modal-dialog modal-md" role="document">
-      <div class="modal-content">
-              <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
-              <img src="" alt="">
-      </div>
-    </div>
-  </div>
+     
       </div>
       <!-- /.content-wrapper -->
       <?php require_once('inc/footer.php') ?>
