@@ -110,7 +110,6 @@
                         <th>Payment Status</th>
                         <th>Mode of Payment</th>
                         <th>Status</th>
-                        
                         <th>Accomodate By</th>
                     </tr>
                 </thead>

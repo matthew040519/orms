@@ -108,8 +108,8 @@
                         <th>Days</th>
                         <th>Total Rate</th>
                         <th>Payment Status</th>
-                        <th>Status</th>
                         <th>Mode of Payment</th>
+                        <th>Status</th>
                         <th>Accomodate By</th>
                     </tr>
                 </thead>
