@@ -10,7 +10,7 @@
                     </li>
                     <?php if($_SESSION['role'] == 1) { ?>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Entry</span></a>
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Entry</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="users.php">Users</a></li>
                             <li><a href="rooms.php">Rooms</a></li>
@@ -27,7 +27,7 @@
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="fas fa-database"></i></span><span class="pcoded-mtext">Reports</span></a>
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="fas fa-database"></i></span><span class="pcoded-mtext">Reports</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="reservationreports.php">Reservation Reports</a></li>
                         </ul>
@@ -40,7 +40,7 @@
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="fas fa-database"></i></span><span class="pcoded-mtext">Reports</span></a>
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="fas fa-database"></i></span><span class="pcoded-mtext">Reports</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="reservationreports.php">Reservation Reports</a></li>
                         </ul>

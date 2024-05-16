@@ -104,7 +104,7 @@
                         <td><?php echo number_format($row['Rate'], 2); ?></td>
                         <td><?php echo $row['totalDays']; ?></td>
                         <td><?php echo number_format($row['totalPay'], 2); ?></td>
-                        <td><td><span class="badge badge-danger">Declined</span></td></td>
+                        <td><span class="badge badge-danger">Declined</span></td>
                         
                     </tr>
                         
