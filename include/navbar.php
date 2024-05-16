@@ -19,7 +19,7 @@
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar"></i></span><span class="pcoded-mtext">Reservation</span></a>
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar"></i></span><span class="pcoded-mtext">Reservation</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="pendingreservation.php">Pending Reservation</a></li>
                             <li><a href="acceptreservation.php">Accepted Reservation</a></li>
