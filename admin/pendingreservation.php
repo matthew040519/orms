@@ -94,7 +94,7 @@
                     ELSE 'Decline' END) as status, (SELECT CASE WHEN reservation.paid = 0 THEN 'Not Paid' ELSE 'Paid' END) as paidStatus
                     FROM reservation INNER JOIN rooms ON rooms.id=reservation.room_id
     INNER JOIN clients ON clients.id=reservation.client_id
-    WHERE reservation.status = 0 OR reservation.paid = 0");
+    WHERE reservation.status = 0 AND reservation.paid = 0");
                     while($row= mysqli_fetch_array($query)){
                     ?>
                     <tr>
